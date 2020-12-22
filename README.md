@@ -1,3 +1,3 @@
 # plotly-challenge
 
-In this project I used javascript to populate an html table within an existing webpage and to allow users to enter a specific date in order to dynamically filter the data and return only the data (in this case ufo sightings) from the specified day.
+In this project I used javascript and plotly to create an interactive dashboard that let's users explore bacteria samples found in different test subjects belly buttons! The data used for this project is in an accompanying json data file.

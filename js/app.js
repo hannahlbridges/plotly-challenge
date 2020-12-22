@@ -1,4 +1,4 @@
-
+// create function to populate dropdown menu with test subject id numbers
     function dropdownmenu(){
         d3.json("../samples.json").then((incomingData) => {
             var samplenames = incomingData.names
@@ -7,12 +7,14 @@
             samplenames.forEach((element) => {
                 object1.append("option").text(element).property("value", element)
             });
+// populate plots and table with first subject id so the page doesn't look empty
             buildtable(samplenames[0]);
             buildcharts(samplenames[0]);
     });
     };
 
-
+// create function to build horizontal bar chart and bubble chart using 
+// the bacteria otu_ids, sample values and otu_labels of selected sample id
     function buildcharts(sampleid){
         d3.json("../samples.json").then((incomingData) => {
             var samplesdata = incomingData.samples
@@ -66,7 +68,7 @@
     });
     };
 
-
+// create function to build table using metadata of selected id
     function buildtable(sampleid){
         d3.json("../samples.json").then((incomingData) => {
             var metadata = incomingData.metadata
@@ -81,8 +83,14 @@
         });
     });
 }
+
+// first run dropdown menu function (which populates page with first
+// sample id data)
 dropdownmenu()
 
+// define function optionChanged (which is created in html) to run
+// both buildtable and buildcharts functions using newsampleID 
+// selected from drop down menu
 function optionChanged(newsampleID) {
     buildtable(newsampleID)
     buildcharts(newsampleID)
