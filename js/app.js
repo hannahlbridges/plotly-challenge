@@ -1,6 +1,6 @@
 // create function to populate dropdown menu with test subject id numbers
     function dropdownmenu(){
-        d3.json("../samples.json").then((incomingData) => {
+        d3.json("samples.json").then((incomingData) => {
             var samplenames = incomingData.names
             var object1 = d3.select("#selDataset")
             console.log(samplenames);
@@ -16,7 +16,7 @@
 // create function to build horizontal bar chart and bubble chart using 
 // the bacteria otu_ids, sample values and otu_labels of selected sample id
     function buildcharts(sampleid){
-        d3.json("../samples.json").then((incomingData) => {
+        d3.json("samples.json").then((incomingData) => {
             var samplesdata = incomingData.samples
         var filterdata = samplesdata.filter(data1 => data1.id == sampleid)
         filterdata = filterdata[0]
@@ -70,7 +70,7 @@
 
 // create function to build table using metadata of selected id
     function buildtable(sampleid){
-        d3.json("../samples.json").then((incomingData) => {
+        d3.json("samples.json").then((incomingData) => {
             var metadata = incomingData.metadata
         var filterdata = metadata.filter(data1 => data1.id == sampleid)
         var tbody = d3.select("#sample-metadata");
